@@ -1,0 +1,83 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: -apple-system, "Pretendard", "Malgun Gothic", sans-serif;
+  background: #f4f5f7; color: #222; min-height: 100vh;
+}
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 20px; background: #2f5bea; color: #fff;
+}
+.topbar h1 { font-size: 1.1rem; margin: 0; }
+.status { font-size: 0.8rem; opacity: 0.9; }
+.tabs { display: flex; background: #fff; border-bottom: 1px solid #e2e4e8; }
+.tab {
+  flex: 1; padding: 12px; border: none; background: none; cursor: pointer;
+  font-size: 0.95rem; color: #666; border-bottom: 3px solid transparent;
+}
+.tab.active { color: #2f5bea; border-bottom-color: #2f5bea; font-weight: 600; }
+main { max-width: 900px; margin: 0 auto; padding: 16px; }
+.panel { display: none; }
+.panel.active { display: block; }
+.hidden { display: none !important; }
+.muted { color: #888; }
+.msg { min-height: 1.2em; font-size: 0.9rem; }
+.msg.ok { color: #1a7f37; }
+.msg.error { color: #c62828; }
+
+.btn {
+  padding: 10px 16px; border: none; border-radius: 8px; cursor: pointer;
+  background: #2f5bea; color: #fff; font-size: 0.95rem;
+}
+.btn:disabled { background: #9db0e8; cursor: not-allowed; }
+.btn.small { padding: 6px 10px; font-size: 0.85rem; }
+.btn.ghost { background: #eceef2; color: #333; }
+.btn.danger { background: #e05555; }
+
+/* 채팅 */
+.chat-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.messages {
+  background: #fff; border-radius: 12px; padding: 12px; min-height: 380px;
+  max-height: 60vh; overflow-y: auto; display: flex; flex-direction: column; gap: 10px;
+}
+.msg-bubble {
+  max-width: 80%; padding: 10px 14px; border-radius: 14px; white-space: pre-wrap;
+  line-height: 1.5; font-size: 0.95rem;
+}
+.msg-bubble.user { align-self: flex-end; background: #2f5bea; color: #fff; }
+.msg-bubble.assistant { align-self: flex-start; background: #eef1f6; }
+.loading { margin: 8px 0; color: #2f5bea; font-size: 0.9rem; }
+.chat-form { display: flex; gap: 8px; margin-top: 10px; }
+.chat-form input { flex: 1; padding: 12px; border: 1px solid #ccd; border-radius: 8px; font-size: 1rem; }
+
+/* 데이터 관리 */
+.data-form { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.data-form input { padding: 9px; border: 1px solid #ccd; border-radius: 8px; font-size: 0.95rem; }
+#data-value { width: 160px; }
+#data-memo { flex: 1; min-width: 160px; }
+.table-wrap { background: #fff; border-radius: 12px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
+td.actions { white-space: nowrap; }
+td.actions .btn { margin-right: 4px; }
+
+/* 대화 기록 */
+.history-layout { display: grid; grid-template-columns: 260px 1fr; gap: 12px; }
+.conv-list { list-style: none; margin: 0; padding: 0; background: #fff; border-radius: 12px; max-height: 65vh; overflow-y: auto; }
+.conv-item { padding: 12px; border-bottom: 1px solid #eee; cursor: pointer; display: flex; flex-direction: column; gap: 4px; }
+.conv-item:hover { background: #f0f4ff; }
+.conv-item small { color: #888; }
+.conv-detail { background: #fff; border-radius: 12px; padding: 14px; min-height: 300px; }
+.conv-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+.conv-head h3 { margin: 0; flex: 1; font-size: 1rem; }
+.conv-messages { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+
+/* 요약 */
+.summary-card { margin-top: 12px; background: #fff; border-radius: 12px; padding: 18px; }
+.summary-grid { display: grid; grid-template-columns: 120px 1fr; gap: 10px 12px; margin: 0; }
+.summary-grid dt { color: #666; }
+.summary-grid dd { margin: 0; font-weight: 600; }
+
+@media (max-width: 640px) {
+  .history-layout { grid-template-columns: 1fr; }
+  .msg-bubble { max-width: 92%; }
+}
